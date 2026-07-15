@@ -13,9 +13,10 @@ Desktop.ini
 docs/*
 !docs/screenshots/
 !docs/screenshots/*.png
+
+# Ignore all Markdown files except the repository README
+*.md
+!README.md
+
 Agent Development Assignment .pdf
-SYSTEM_REVERSE_ENGINEERING.md
-CODE_AUDIT_REPORT.md
-CLEANUP_SUMMARY.md
-README_AUDIT_REPORT.md
 git_update.txt
