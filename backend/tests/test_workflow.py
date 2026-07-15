@@ -138,6 +138,12 @@ def test_upload_and_sample_endpoints(data_dir):
     samples = client.get("/api/sample-buyers")
     assert samples.status_code == 200
     assert len(samples.json()) == 8
+    categories = client.get("/api/catalog/categories")
+    assert categories.status_code == 200
+    assert categories.json() == sorted(
+        {product.category for product in JsonCatalogRepository(data_dir / "catalog.json").products()},
+        key=str.casefold,
+    )
     upload = client.post(
         "/api/shopping/upload",
         files={"file": ("buyer.json", json.dumps(buyer_payload()), "application/json")},

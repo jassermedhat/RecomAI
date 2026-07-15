@@ -2,7 +2,8 @@ import { Check, Clipboard, FileJson, LoaderCircle, Plus, Sparkles, Trash2, Uploa
 import { useEffect, useRef, useState } from 'react'
 import { toast } from 'sonner'
 import { shoppingApi } from '../api'
-import { Card, cx, ErrorState } from './ui'
+import { useApp } from '../context/AppContext'
+import { Card, cx, ErrorState, formatCategory } from './ui'
 
 const example = JSON.stringify({
   user_id: 'A123',
@@ -14,28 +15,19 @@ const example = JSON.stringify({
 const tabs = [['guided', 'Guided form', UserPlus], ['paste', 'Paste JSON', FileJson], ['upload', 'Upload file', Upload], ['sample', 'Sample buyer', Users]]
 const stages = ['LLM analyzing buyer history', 'LLM choosing a new category', 'Searching matching catalog products', 'Ranking product choices']
 const blankPurchase = () => ({ product: '', category: '', price: '' })
-const savedBuyersKey = 'asa-saved-buyers'
-
-function savedBuyers() {
-  try {
-    const value = JSON.parse(localStorage.getItem(savedBuyersKey) || '[]')
-    return Array.isArray(value) ? value.filter((buyer) => buyer?.user_id && Array.isArray(buyer.history)) : []
-  } catch {
-    return []
-  }
-}
-
 function mergeBuyers(...groups) {
   const merged = new Map()
-  groups.flat().forEach((buyer) => merged.set(buyer.user_id, buyer))
+  groups.flat().forEach((buyer) => merged.set(buyer.user_id.toLocaleLowerCase(), buyer))
   return [...merged.values()]
 }
 
 export default function BuyerInput({ onResult, onInputChange }) {
+  const { savedBuyers, saveBuyer } = useApp()
   const [mode, setMode] = useState('guided')
   const [text, setText] = useState(example)
   const [file, setFile] = useState(null)
   const [samples, setSamples] = useState(savedBuyers)
+  const [categories, setCategories] = useState([])
   const [sampleId, setSampleId] = useState('')
   const [busy, setBusy] = useState(false)
   const [stage, setStage] = useState(0)
@@ -46,14 +38,14 @@ export default function BuyerInput({ onResult, onInputChange }) {
   const timer = useRef(null)
 
   useEffect(() => {
+    shoppingApi.categories().then(setCategories).catch((err) => setError(err.message))
     shoppingApi.samples().then((data) => {
-      const merged = mergeBuyers(savedBuyers(), data)
+      const merged = mergeBuyers(savedBuyers, data)
       setSamples(merged)
       setSampleId((current) => current || merged[0]?.user_id || '')
     }).catch((err) => {
-      const saved = savedBuyers()
-      setSamples(saved)
-      setSampleId((current) => current || saved[0]?.user_id || '')
+      setSamples(savedBuyers)
+      setSampleId((current) => current || savedBuyers[0]?.user_id || '')
       setError(err.message)
     })
     return () => clearInterval(timer.current)
@@ -77,9 +69,8 @@ export default function BuyerInput({ onResult, onInputChange }) {
     update()
   }
 
-  function saveBuyer(buyer) {
-    const saved = mergeBuyers(savedBuyers(), [buyer])
-    localStorage.setItem(savedBuyersKey, JSON.stringify(saved))
+  function rememberBuyer(buyer) {
+    saveBuyer(buyer)
     setSamples((current) => mergeBuyers(current, [buyer]))
     setSampleId(buyer.user_id)
   }
@@ -104,7 +95,7 @@ export default function BuyerInput({ onResult, onInputChange }) {
           throw new Error('Complete every purchase with a product, category, and valid non-negative price.')
         }
         const buyer = guidedBuyer()
-        saveBuyer(buyer)
+        rememberBuyer(buyer)
         result = await shoppingApi.process(buyer)
       } else if (mode === 'paste') {
         let buyer
@@ -135,7 +126,7 @@ export default function BuyerInput({ onResult, onInputChange }) {
         {mode === 'guided' && <div className="guided-form">
           <label><span>1. What is this buyer's ID?</span><input aria-label="Guided buyer ID" value={guidedId} onChange={(event) => changeInput(() => setGuidedId(event.target.value))} placeholder="Example: D204" maxLength="100" /></label>
           <fieldset><legend>2. Does this buyer have previous purchases?</legend><div className="choice-row"><label><input type="radio" name="has-history" checked={hasHistory} onChange={() => changeInput(() => setHasHistory(true))} />Yes</label><label><input type="radio" name="has-history" checked={!hasHistory} onChange={() => changeInput(() => setHasHistory(false))} />No, this is a new buyer</label></div></fieldset>
-          {hasHistory && <fieldset className="purchase-builder"><legend>3. What have they purchased?</legend>{guidedHistory.map((item, index) => <div className="purchase-entry" key={index}><div className="purchase-entry-head"><strong>Purchase {index + 1}</strong>{guidedHistory.length > 1 && <button type="button" className="btn-icon danger" aria-label={`Remove purchase ${index + 1}`} onClick={() => changeInput(() => setGuidedHistory((current) => current.filter((_, itemIndex) => itemIndex !== index)))}><Trash2 size={16}/></button>}</div><label><span>Product name</span><input value={item.product} onChange={(event) => updatePurchase(index, 'product', event.target.value)} placeholder="Wireless headphones" /></label><div className="guided-row"><label><span>Category</span><input value={item.category} onChange={(event) => updatePurchase(index, 'category', event.target.value)} placeholder="electronics" /></label><label><span>Price (USD)</span><input type="number" min="0" step="0.01" value={item.price} onChange={(event) => updatePurchase(index, 'price', event.target.value)} placeholder="120" /></label></div></div>)}<button type="button" className="btn btn-secondary add-purchase" onClick={() => changeInput(() => setGuidedHistory((current) => [...current, blankPurchase()]))}><Plus size={16}/>Add another purchase</button></fieldset>}
+          {hasHistory && <fieldset className="purchase-builder"><legend>3. What have they purchased?</legend>{guidedHistory.map((item, index) => <div className="purchase-entry" key={index}><div className="purchase-entry-head"><strong>Purchase {index + 1}</strong>{guidedHistory.length > 1 && <button type="button" className="btn-icon danger" aria-label={`Remove purchase ${index + 1}`} onClick={() => changeInput(() => setGuidedHistory((current) => current.filter((_, itemIndex) => itemIndex !== index)))}><Trash2 size={16}/></button>}</div><label><span>Product name</span><input value={item.product} onChange={(event) => updatePurchase(index, 'product', event.target.value)} placeholder="Wireless headphones" /></label><div className="guided-row"><label><span>Category</span><select value={item.category} onChange={(event) => updatePurchase(index, 'category', event.target.value)}><option value="">Choose a category</option>{categories.map((category) => <option key={category} value={category}>{formatCategory(category)}</option>)}</select></label><label><span>Price (USD)</span><input type="number" min="0" step="0.01" value={item.price} onChange={(event) => updatePurchase(index, 'price', event.target.value)} placeholder="120" /></label></div></div>)}<button type="button" className="btn btn-secondary add-purchase" onClick={() => changeInput(() => setGuidedHistory((current) => [...current, blankPurchase()]))}><Plus size={16}/>Add another purchase</button></fieldset>}
           <div className="json-preview"><div><span>Generated JSON preview</span><button type="button" className="btn-icon" aria-label="Copy generated buyer JSON" onClick={copyGuidedJson}><Clipboard size={16}/></button></div><pre>{JSON.stringify(guidedBuyer(), null, 2)}</pre></div>
         </div>}
         {mode === 'paste' && <label><span>Buyer JSON</span><textarea value={text} onChange={(event) => changeInput(() => setText(event.target.value))} rows="12" spellCheck="false" /></label>}

@@ -76,6 +76,14 @@ def create_app(orchestrator: ShoppingOrchestrator | None = None, settings: Setti
             logger.exception("Sample buyer file failure")
             raise HTTPException(status_code=500, detail=f"Sample buyer data is unavailable: {exc}") from exc
 
+    @app.get("/api/catalog/categories", response_model=list[str])
+    def catalog_categories() -> list[str]:
+        try:
+            return app.state.orchestrator.catalog.categories()
+        except StorageError as exc:
+            logger.exception("Catalog category failure")
+            raise HTTPException(status_code=500, detail=str(exc)) from exc
+
     def memory_repository() -> JsonMemoryRepository:
         return app.state.orchestrator.memory_agent.repository
 

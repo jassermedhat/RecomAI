@@ -1053,6 +1053,340 @@
           }
         }
       ]
+    },
+    "C789": {
+      "user_id": "C789",
+      "purchase_history": [
+        {
+          "product": "Pocket Power Bank",
+          "category": "electronics_accessories",
+          "price": 45.0
+        }
+      ],
+      "recommendation": {
+        "category": "electronics_accessories",
+        "reason": "There is no prior purchase history, so the choice is exploratory. In your previous response, you mentioned that there was an invented purchase record for 'Electronics Accessories' which contradicted the stated absence of a purchase history. Therefore, based on the given instruction and the data in buyer_history being empty, recommending 'electronics_accessories' aligns with choosing a new category without inventing any purchasing behavior."
+      },
+      "ranked_products": [
+        {
+          "product": "Pocket Power Bank",
+          "category": "electronics_accessories",
+          "price": 45.0,
+          "product_id": "EA-602",
+          "features": [
+            "10,000 mAh capacity",
+            "Fast USB-C charging",
+            "Battery indicator"
+          ]
+        },
+        {
+          "product": "Mini Bluetooth Speaker",
+          "category": "electronics_accessories",
+          "price": 65.0,
+          "product_id": "EA-603",
+          "features": [
+            "360-degree audio",
+            "Water resistant",
+            "12-hour battery"
+          ]
+        },
+        {
+          "product": "Nova ANC Headphones",
+          "category": "electronics_accessories",
+          "price": 140.0,
+          "product_id": "EA-601",
+          "features": [
+            "Active noise cancellation",
+            "40-hour battery",
+            "Foldable design"
+          ]
+        }
+      ],
+      "purchased_product": {
+        "product": "Pocket Power Bank",
+        "category": "electronics_accessories",
+        "price": 45.0,
+        "product_id": "EA-602",
+        "features": [
+          "10,000 mAh capacity",
+          "Fast USB-C charging",
+          "Battery indicator"
+        ]
+      },
+      "transaction": {
+        "transaction_id": "SIM-4AD0972EB372",
+        "user_id": "C789",
+        "product": {
+          "product": "Pocket Power Bank",
+          "category": "electronics_accessories",
+          "price": 45.0,
+          "product_id": "EA-602",
+          "features": [
+            "10,000 mAh capacity",
+            "Fast USB-C charging",
+            "Battery indicator"
+          ]
+        },
+        "status": "simulated_success",
+        "purchased_at": "2026-07-15T20:15:56.013892Z"
+      },
+      "interactions": [
+        {
+          "recommendation": {
+            "category": "electronics_accessories",
+            "reason": "There is no prior purchase history, so the choice is exploratory. In your previous response, you mentioned that there was an invented purchase record for 'Electronics Accessories' which contradicted the stated absence of a purchase history. Therefore, based on the given instruction and the data in buyer_history being empty, recommending 'electronics_accessories' aligns with choosing a new category without inventing any purchasing behavior."
+          },
+          "ranked_products": [
+            {
+              "product": "Pocket Power Bank",
+              "category": "electronics_accessories",
+              "price": 45.0,
+              "product_id": "EA-602",
+              "features": [
+                "10,000 mAh capacity",
+                "Fast USB-C charging",
+                "Battery indicator"
+              ]
+            },
+            {
+              "product": "Mini Bluetooth Speaker",
+              "category": "electronics_accessories",
+              "price": 65.0,
+              "product_id": "EA-603",
+              "features": [
+                "360-degree audio",
+                "Water resistant",
+                "12-hour battery"
+              ]
+            },
+            {
+              "product": "Nova ANC Headphones",
+              "category": "electronics_accessories",
+              "price": 140.0,
+              "product_id": "EA-601",
+              "features": [
+                "Active noise cancellation",
+                "40-hour battery",
+                "Foldable design"
+              ]
+            }
+          ],
+          "purchased_product": {
+            "product": "Pocket Power Bank",
+            "category": "electronics_accessories",
+            "price": 45.0,
+            "product_id": "EA-602",
+            "features": [
+              "10,000 mAh capacity",
+              "Fast USB-C charging",
+              "Battery indicator"
+            ]
+          },
+          "transaction": {
+            "transaction_id": "SIM-4AD0972EB372",
+            "user_id": "C789",
+            "product": {
+              "product": "Pocket Power Bank",
+              "category": "electronics_accessories",
+              "price": 45.0,
+              "product_id": "EA-602",
+              "features": [
+                "10,000 mAh capacity",
+                "Fast USB-C charging",
+                "Battery indicator"
+              ]
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-15T20:15:56.013892Z"
+          },
+          "recommendation_metrics": {
+            "confidence": 85,
+            "generated_at": "2026-07-15T20:15:51.680644Z",
+            "thinking_duration_ms": 2568,
+            "product_match_scores": {},
+            "confidence_basis": "Engineering score based on category novelty, buyer-history signal, and catalog match availability; product price matches are percentage closeness to the buyer's historical mean price."
+          }
+        }
+      ]
+    },
+    "D204": {
+      "user_id": "D204",
+      "purchase_history": [
+        {
+          "product": "Mechanical keyboard",
+          "category": "electronics",
+          "price": 105.0
+        },
+        {
+          "product": "Desk organizer",
+          "category": "office",
+          "price": 34.0
+        },
+        {
+          "product": "USB microphone",
+          "category": "electronics",
+          "price": 89.0
+        },
+        {
+          "product": "Apex Pro 5G Smartphone",
+          "category": "electronics",
+          "price": 999.0
+        },
+        {
+          "product": "Digital Drawing Tablet",
+          "category": "creative_hobbies",
+          "price": 110.0
+        }
+      ],
+      "recommendation": {
+        "category": "creative_hobbies",
+        "reason": "The buyer has shown interest in electronics products such as a USB microphone and an Apex Pro 5G Smartphone. The only new category from your catalog is 'creative_hobbies', which could encompass items like mechanical keyboards or other electronic hobbies-related accessories based on the available history."
+      },
+      "ranked_products": [
+        {
+          "product": "Craft Cutting Machine",
+          "category": "creative_hobbies",
+          "price": 150.0,
+          "product_id": "CH-803",
+          "features": [
+            "Precision blade",
+            "Reusable cutting mat",
+            "Template library"
+          ]
+        },
+        {
+          "product": "Digital Drawing Tablet",
+          "category": "creative_hobbies",
+          "price": 110.0,
+          "product_id": "CH-801",
+          "features": [
+            "Pressure-sensitive pen",
+            "Custom shortcut keys",
+            "USB-C connection"
+          ]
+        },
+        {
+          "product": "Portable Photo Printer",
+          "category": "creative_hobbies",
+          "price": 95.0,
+          "product_id": "CH-802",
+          "features": [
+            "Wireless printing",
+            "Pocket-size photos",
+            "Rechargeable battery"
+          ]
+        }
+      ],
+      "purchased_product": {
+        "product": "Digital Drawing Tablet",
+        "category": "creative_hobbies",
+        "price": 110.0,
+        "product_id": "CH-801",
+        "features": [
+          "Pressure-sensitive pen",
+          "Custom shortcut keys",
+          "USB-C connection"
+        ]
+      },
+      "transaction": {
+        "transaction_id": "SIM-FFB8D6D38E9C",
+        "user_id": "D204",
+        "product": {
+          "product": "Digital Drawing Tablet",
+          "category": "creative_hobbies",
+          "price": 110.0,
+          "product_id": "CH-801",
+          "features": [
+            "Pressure-sensitive pen",
+            "Custom shortcut keys",
+            "USB-C connection"
+          ]
+        },
+        "status": "simulated_success",
+        "purchased_at": "2026-07-15T20:49:58.995465Z"
+      },
+      "interactions": [
+        {
+          "recommendation": {
+            "category": "creative_hobbies",
+            "reason": "The buyer has shown interest in electronics products such as a USB microphone and an Apex Pro 5G Smartphone. The only new category from your catalog is 'creative_hobbies', which could encompass items like mechanical keyboards or other electronic hobbies-related accessories based on the available history."
+          },
+          "ranked_products": [
+            {
+              "product": "Craft Cutting Machine",
+              "category": "creative_hobbies",
+              "price": 150.0,
+              "product_id": "CH-803",
+              "features": [
+                "Precision blade",
+                "Reusable cutting mat",
+                "Template library"
+              ]
+            },
+            {
+              "product": "Digital Drawing Tablet",
+              "category": "creative_hobbies",
+              "price": 110.0,
+              "product_id": "CH-801",
+              "features": [
+                "Pressure-sensitive pen",
+                "Custom shortcut keys",
+                "USB-C connection"
+              ]
+            },
+            {
+              "product": "Portable Photo Printer",
+              "category": "creative_hobbies",
+              "price": 95.0,
+              "product_id": "CH-802",
+              "features": [
+                "Wireless printing",
+                "Pocket-size photos",
+                "Rechargeable battery"
+              ]
+            }
+          ],
+          "purchased_product": {
+            "product": "Digital Drawing Tablet",
+            "category": "creative_hobbies",
+            "price": 110.0,
+            "product_id": "CH-801",
+            "features": [
+              "Pressure-sensitive pen",
+              "Custom shortcut keys",
+              "USB-C connection"
+            ]
+          },
+          "transaction": {
+            "transaction_id": "SIM-FFB8D6D38E9C",
+            "user_id": "D204",
+            "product": {
+              "product": "Digital Drawing Tablet",
+              "category": "creative_hobbies",
+              "price": 110.0,
+              "product_id": "CH-801",
+              "features": [
+                "Pressure-sensitive pen",
+                "Custom shortcut keys",
+                "USB-C connection"
+              ]
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-15T20:49:58.995465Z"
+          },
+          "recommendation_metrics": {
+            "confidence": 95,
+            "generated_at": "2026-07-15T20:49:53.794727Z",
+            "thinking_duration_ms": 8061,
+            "product_match_scores": {
+              "CH-803": 49,
+              "CH-801": 36,
+              "CH-802": 31
+            },
+            "confidence_basis": "Engineering score based on category novelty, buyer-history signal, and catalog match availability; product price matches are percentage closeness to the buyer's historical mean price."
+          }
+        }
+      ]
     }
   }
 }

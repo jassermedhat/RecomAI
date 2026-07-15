@@ -21,11 +21,13 @@ const completedPurchase = {
   purchase: { transaction_id: 'SIM-1', purchased_at: '2026-01-01T00:00:00Z' },
   memory: { user_id: 'A123', purchase_history: [{ product: 'Pulse Activity Ring' }] },
 }
+const catalogCategories = ['electronics', 'fitness_technology', 'home_living', 'smart_home']
 const routeData = (path) => {
   if (path === '/api/buyers') return [buyer]
   if (path === '/api/history') return []
   if (path === '/api/system-info') return { version: '2.0.0', ollama_model: 'qwen2.5:3b', ollama_ready: true, memory_type: 'Local JSON', memory_location: 'backend/data/memory.json' }
   if (path === '/api/sample-buyers') return [{ user_id: 'A123', history: [] }]
+  if (path === '/api/catalog/categories') return catalogCategories
   if (path === '/api/shopping/purchase') return completedPurchase
   return result
 }
@@ -91,6 +93,34 @@ describe('portfolio app', () => {
     expect(JSON.parse(purchaseCall[1].body).product_id).toBe('FT-101')
   })
 
+  it('shows the exact recalled purchases used by the recommendation', async () => {
+    const analyzed = {
+      ...result,
+      buyer: {
+        user_id: 'J78',
+        history: [
+          { product: 'Smart Ambient Lamp', category: 'smart_home', price: 90 },
+          { product: 'Wireless Headphones', category: 'electronics', price: 100 },
+        ],
+      },
+    }
+    global.fetch = vi.fn((path) => Promise.resolve({
+      ok: true,
+      status: 200,
+      json: async () => path === '/api/shopping/process' ? analyzed : routeData(path),
+    }))
+    renderAt('/recommend')
+    fireEvent.click(await screen.findByRole('tab', { name: /paste json/i }))
+    fireEvent.click(screen.getByRole('button', { name: /analyze recommendations/i }))
+
+    expect(await screen.findByRole('heading', { name: /actual purchases/i })).toBeInTheDocument()
+    expect(screen.getByLabelText(/purchase history used for j78/i)).toHaveTextContent('Smart Ambient Lamp')
+    expect(screen.getByLabelText(/purchase history used for j78/i)).toHaveTextContent('Smart Home')
+    expect(screen.getByLabelText(/purchase history used for j78/i)).toHaveTextContent('$90.00')
+    expect(screen.getByLabelText(/purchase history used for j78/i)).toHaveTextContent('Wireless Headphones')
+    expect(screen.getByLabelText(/purchase history used for j78/i)).toHaveTextContent('Electronics')
+  })
+
   it('renders a friendly backend error', async () => {
     global.fetch = vi.fn((path) => Promise.resolve({ ok: !String(path).includes('/shopping/process'), status: 503, json: async () => String(path).includes('/shopping/process') ? { detail: 'Ollama is unavailable.' } : routeData(path) }))
     renderAt('/recommend')
@@ -134,21 +164,51 @@ describe('portfolio app', () => {
     renderAt('/recommend')
     fireEvent.change(await screen.findByLabelText(/guided buyer id/i), { target: { value: 'D204' } })
     fireEvent.change(screen.getByPlaceholderText('Wireless headphones'), { target: { value: 'Camera bag' } })
-    fireEvent.change(screen.getByPlaceholderText('electronics'), { target: { value: 'photography' } })
+    const category = await screen.findByRole('option', { name: 'Electronics' })
+    expect(category).toHaveValue('electronics')
+    expect(screen.getByRole('option', { name: 'Smart Home' })).toHaveValue('smart_home')
+    fireEvent.change(screen.getByLabelText('Category'), { target: { value: 'electronics' } })
     fireEvent.change(screen.getByPlaceholderText('120'), { target: { value: '75' } })
     fireEvent.click(screen.getByRole('button', { name: /create json and analyze/i }))
     await screen.findByRole('heading', { name: 'Fitness Technology' })
     const processCall = global.fetch.mock.calls.find(([path]) => path === '/api/shopping/process')
     expect(JSON.parse(processCall[1].body)).toEqual({
-      user_id: 'D204', history: [{ product: 'Camera bag', category: 'photography', price: 75 }],
+      user_id: 'D204', history: [{ product: 'Camera bag', category: 'electronics', price: 75 }],
     })
     expect(JSON.parse(localStorage.getItem('asa-saved-buyers'))).toEqual([
-      { user_id: 'D204', history: [{ product: 'Camera bag', category: 'photography', price: 75 }] },
+      { user_id: 'D204', history: [{ product: 'Camera bag', category: 'electronics', price: 75 }] },
     ])
     fireEvent.click(screen.getByRole('tab', { name: /sample buyer/i }))
     expect(screen.getByRole('option', { name: /D204.*1 prior purchase/i })).toBeInTheDocument()
     expect(screen.queryByRole('heading', { name: 'Fitness Technology' })).not.toBeInTheDocument()
     expect(screen.getByRole('heading', { name: /your recommendation will appear here/i })).toBeInTheDocument()
+  })
+
+  it('shows a browser-saved buyer and entered purchases across pages', async () => {
+    const view = renderAt('/recommend')
+    fireEvent.change(await screen.findByLabelText(/guided buyer id/i), { target: { value: 'J78' } })
+    fireEvent.change(screen.getByPlaceholderText('Wireless headphones'), { target: { value: 'Camera bag' } })
+    await screen.findByRole('option', { name: 'Electronics' })
+    fireEvent.change(screen.getByLabelText('Category'), { target: { value: 'electronics' } })
+    fireEvent.change(screen.getByPlaceholderText('120'), { target: { value: '75' } })
+    fireEvent.click(screen.getByRole('button', { name: /create json and analyze/i }))
+    await screen.findByRole('heading', { name: 'Fitness Technology' })
+
+    fireEvent.click(screen.getByRole('link', { name: 'Buyers' }))
+    expect(await screen.findByRole('heading', { name: 'J78' })).toBeInTheDocument()
+
+    view.unmount()
+    renderAt('/buyers')
+
+    expect(await screen.findByRole('heading', { name: 'J78' })).toBeInTheDocument()
+    expect(screen.getByText('Saved')).toBeInTheDocument()
+    expect(screen.getByText('$75.00')).toBeInTheDocument()
+
+    fireEvent.click(screen.getByRole('link', { name: 'History' }))
+    expect(await screen.findByRole('heading', { level: 1, name: 'Purchase history' })).toBeInTheDocument()
+    expect(screen.getByText('Camera bag')).toBeInTheDocument()
+    expect(screen.getByText('J78')).toBeInTheDocument()
+    expect(screen.getByText('Saved buyer profile')).toBeInTheDocument()
   })
 
   it('rejects duplicate guided buyer IDs and keeps backend samples authoritative', async () => {

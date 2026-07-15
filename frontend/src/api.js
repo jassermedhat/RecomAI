@@ -14,6 +14,7 @@ async function request(path, options = {}) {
 
 export const shoppingApi = {
   samples: () => request('/api/sample-buyers'),
+  categories: () => request('/api/catalog/categories'),
   buyers: () => request('/api/buyers'),
   history: () => request('/api/history'),
   systemInfo: () => request('/api/system-info'),
