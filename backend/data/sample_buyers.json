@@ -1,0 +1,63 @@
+{
+  "buyers": [
+    {
+      "user_id": "A123",
+      "history": [
+        {"product": "Bluetooth headphones", "category": "electronics", "price": 120},
+        {"product": "Running shoes", "category": "sportswear", "price": 80}
+      ]
+    },
+    {
+      "user_id": "B456",
+      "history": [
+        {"product": "Cookbook", "category": "books", "price": 25},
+        {"product": "Table lamp", "category": "home_living", "price": 68},
+        {"product": "VisionMax 65-inch 4K Smart TV", "category": "electronics", "price": 1499}
+      ]
+    },
+    {
+      "user_id": "C789",
+      "history": []
+    },
+    {
+      "user_id": "D204",
+      "history": [
+        {"product": "Mechanical keyboard", "category": "electronics", "price": 105},
+        {"product": "Desk organizer", "category": "office", "price": 34},
+        {"product": "USB microphone", "category": "electronics", "price": 89},
+        {"product": "Apex Pro 5G Smartphone", "category": "electronics", "price": 999}
+      ]
+    },
+    {
+      "user_id": "E515",
+      "history": [
+        {"product": "Chef knife", "category": "kitchen", "price": 72},
+        {"product": "Recipe journal", "category": "books", "price": 18}
+      ]
+    },
+    {
+      "user_id": "F808",
+      "history": [
+        {"product": "Watercolor set", "category": "art", "price": 46},
+        {"product": "Sketchbook", "category": "stationery", "price": 22},
+        {"product": "Desk lamp", "category": "home_living", "price": 58},
+        {"product": "StudioBook OLED Laptop", "category": "electronics", "price": 1899}
+      ]
+    },
+    {
+      "user_id": "G911",
+      "history": [
+        {"product": "Carry-on suitcase", "category": "travel", "price": 145},
+        {"product": "Travel pillow", "category": "travel", "price": 29}
+      ]
+    },
+    {
+      "user_id": "H314",
+      "history": [
+        {"product": "Yoga mat", "category": "sportswear", "price": 40},
+        {"product": "Protein shaker", "category": "fitness", "price": 16},
+        {"product": "Meditation cushion", "category": "personal_care", "price": 52}
+      ]
+    }
+  ]
+}

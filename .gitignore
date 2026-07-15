@@ -1,0 +1,20 @@
+__pycache__/
+.pytest_cache/
+backend/data/*.tmp
+frontend/node_modules/
+frontend/dist/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Documentation: track README.md and current screenshots only
+docs/*
+!docs/screenshots/
+!docs/screenshots/*.png
+Agent Development Assignment .pdf
+SYSTEM_REVERSE_ENGINEERING.md
+CODE_AUDIT_REPORT.md
+CLEANUP_SUMMARY.md
+README_AUDIT_REPORT.md

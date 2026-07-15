@@ -1,0 +1,1058 @@
+{
+  "buyers": {
+    "A123": {
+      "user_id": "A123",
+      "purchase_history": [
+        {
+          "product": "Bluetooth headphones",
+          "category": "electronics",
+          "price": 120.0
+        },
+        {
+          "product": "Running shoes",
+          "category": "sportswear",
+          "price": 80.0
+        },
+        {
+          "product": "Trail Daypack",
+          "category": "outdoor",
+          "price": 85.0
+        },
+        {
+          "product": "Stride GPS Band",
+          "category": "fitness_technology",
+          "price": 95.0
+        },
+        {
+          "product": "Trail Daypack",
+          "category": "outdoor",
+          "price": 85.0
+        },
+        {
+          "product": "Trail Daypack",
+          "category": "outdoor",
+          "price": 85.0
+        },
+        {
+          "product": "Stride GPS Band",
+          "category": "fitness_technology",
+          "price": 95.0
+        },
+        {
+          "product": "Stride GPS Band",
+          "category": "fitness_technology",
+          "price": 95.0
+        },
+        {
+          "product": "Trail Daypack",
+          "category": "outdoor",
+          "price": 85.0
+        },
+        {
+          "product": "Weighted Throw Blanket",
+          "category": "home_living",
+          "price": 75.0
+        },
+        {
+          "product": "Pocket Power Bank",
+          "category": "electronics_accessories",
+          "price": 45.0
+        },
+        {
+          "product": "Heated Neck Wrap",
+          "category": "personal_care",
+          "price": 55.0
+        }
+      ],
+      "recommendation": {
+        "category": "personal_care",
+        "reason": "The buyer_history includes 'Pocket Power Bank' which falls under the 'electronics_accessories' category, however, this is not a valid choice from the catalog_categories list. The closest match and most relevant category to the accessories is 'personal_care'. There are no other categories in the history that support another category selection."
+      },
+      "ranked_products": [
+        {
+          "product": "Electric Toothbrush",
+          "category": "personal_care",
+          "price": 60.0,
+          "product_id": "PC-501",
+          "features": [
+            "Two-minute timer",
+            "Pressure alert",
+            "Three cleaning modes"
+          ]
+        },
+        {
+          "product": "Heated Neck Wrap",
+          "category": "personal_care",
+          "price": 55.0,
+          "product_id": "PC-503",
+          "features": [
+            "Three heat levels",
+            "Soft washable cover",
+            "Auto shutoff"
+          ]
+        },
+        {
+          "product": "Sleep Sound Machine",
+          "category": "personal_care",
+          "price": 45.0,
+          "product_id": "PC-502",
+          "features": [
+            "Twelve soundscapes",
+            "Sleep timer",
+            "Warm night light"
+          ]
+        }
+      ],
+      "purchased_product": {
+        "product": "Heated Neck Wrap",
+        "category": "personal_care",
+        "price": 55.0,
+        "product_id": "PC-503",
+        "features": [
+          "Three heat levels",
+          "Soft washable cover",
+          "Auto shutoff"
+        ]
+      },
+      "transaction": {
+        "transaction_id": "SIM-57E8638F5070",
+        "user_id": "A123",
+        "product": {
+          "product": "Heated Neck Wrap",
+          "category": "personal_care",
+          "price": 55.0,
+          "product_id": "PC-503",
+          "features": [
+            "Three heat levels",
+            "Soft washable cover",
+            "Auto shutoff"
+          ]
+        },
+        "status": "simulated_success",
+        "purchased_at": "2026-07-14T19:56:10.555683Z"
+      },
+      "interactions": [
+        {
+          "recommendation": {
+            "category": "outdoor",
+            "reason": "The last outdoor purchase was running shoes, which were in the sportswear category. No other categories have been bought yet within the given list of catalog_categories."
+          },
+          "ranked_products": [
+            {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301"
+            },
+            {
+              "product": "Rechargeable Camp Lantern",
+              "category": "outdoor",
+              "price": 48.0,
+              "product_id": "OD-303"
+            },
+            {
+              "product": "Insulated Water Bottle",
+              "category": "outdoor",
+              "price": 28.0,
+              "product_id": "OD-302"
+            }
+          ],
+          "purchased_product": {
+            "product": "Trail Daypack",
+            "category": "outdoor",
+            "price": 85.0,
+            "product_id": "OD-301"
+          },
+          "transaction": {
+            "transaction_id": "SIM-EFB7322B9C5B",
+            "user_id": "A123",
+            "product": {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:39:18.446388Z"
+          }
+        },
+        {
+          "recommendation": {
+            "category": "fitness_technology",
+            "reason": "The buyer has shown interest in fitness technology through their purchase of Bluetooth headphones, suggesting they might benefit from or appreciate other fitness tech items like smartwatches or fitness bands."
+          },
+          "ranked_products": [
+            {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102"
+            },
+            {
+              "product": "PulseTrack Fitness Watch",
+              "category": "fitness_technology",
+              "price": 115.0,
+              "product_id": "FT-101"
+            },
+            {
+              "product": "Active Recovery Massager",
+              "category": "fitness_technology",
+              "price": 130.0,
+              "product_id": "FT-103"
+            }
+          ],
+          "purchased_product": {
+            "product": "Stride GPS Band",
+            "category": "fitness_technology",
+            "price": 95.0,
+            "product_id": "FT-102"
+          },
+          "transaction": {
+            "transaction_id": "SIM-3F0AE7903920",
+            "user_id": "A123",
+            "product": {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:40:08.035483Z"
+          }
+        },
+        {
+          "recommendation": {
+            "category": "outdoor",
+            "reason": "The buyer has shown interest in running shoes, which fall under the outdoor category. This suggests they might enjoy activities outdoors or have an increasing need for items related to outdoor living and fitness."
+          },
+          "ranked_products": [
+            {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301"
+            },
+            {
+              "product": "Rechargeable Camp Lantern",
+              "category": "outdoor",
+              "price": 48.0,
+              "product_id": "OD-303"
+            },
+            {
+              "product": "Insulated Water Bottle",
+              "category": "outdoor",
+              "price": 28.0,
+              "product_id": "OD-302"
+            }
+          ],
+          "purchased_product": {
+            "product": "Trail Daypack",
+            "category": "outdoor",
+            "price": 85.0,
+            "product_id": "OD-301"
+          },
+          "transaction": {
+            "transaction_id": "SIM-B54F7F37E6A2",
+            "user_id": "A123",
+            "product": {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:40:14.713443Z"
+          }
+        },
+        {
+          "recommendation": {
+            "category": "outdoor",
+            "reason": "The last outdoor purchase was running shoes, which aligns well with fitness technology and home living categories. Choosing the outdoor category avoids duplication of purchases."
+          },
+          "ranked_products": [
+            {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301"
+            },
+            {
+              "product": "Rechargeable Camp Lantern",
+              "category": "outdoor",
+              "price": 48.0,
+              "product_id": "OD-303"
+            },
+            {
+              "product": "Insulated Water Bottle",
+              "category": "outdoor",
+              "price": 28.0,
+              "product_id": "OD-302"
+            }
+          ],
+          "purchased_product": {
+            "product": "Trail Daypack",
+            "category": "outdoor",
+            "price": 85.0,
+            "product_id": "OD-301"
+          },
+          "transaction": {
+            "transaction_id": "SIM-EE59B73C6C37",
+            "user_id": "A123",
+            "product": {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:40:17.094057Z"
+          }
+        },
+        {
+          "recommendation": {
+            "category": "fitness_technology",
+            "reason": "The buyer has shown interest in fitness technology with their Bluetooth headphones purchase, suggesting they might benefit from other tech-related items such as smart watches or fitness trackers."
+          },
+          "ranked_products": [
+            {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102"
+            },
+            {
+              "product": "PulseTrack Fitness Watch",
+              "category": "fitness_technology",
+              "price": 115.0,
+              "product_id": "FT-101"
+            },
+            {
+              "product": "Active Recovery Massager",
+              "category": "fitness_technology",
+              "price": 130.0,
+              "product_id": "FT-103"
+            }
+          ],
+          "purchased_product": {
+            "product": "Stride GPS Band",
+            "category": "fitness_technology",
+            "price": 95.0,
+            "product_id": "FT-102"
+          },
+          "transaction": {
+            "transaction_id": "SIM-7D99BD05DC61",
+            "user_id": "A123",
+            "product": {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:40:18.420393Z"
+          }
+        },
+        {
+          "recommendation": {
+            "category": "fitness_technology",
+            "reason": "The buyer has shown interest in fitness technology with their Bluetooth headphones purchase, making home_living the closest alternative. The next best fit is fitness_technology."
+          },
+          "ranked_products": [
+            {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102"
+            },
+            {
+              "product": "PulseTrack Fitness Watch",
+              "category": "fitness_technology",
+              "price": 115.0,
+              "product_id": "FT-101"
+            },
+            {
+              "product": "Active Recovery Massager",
+              "category": "fitness_technology",
+              "price": 130.0,
+              "product_id": "FT-103"
+            }
+          ],
+          "purchased_product": {
+            "product": "Stride GPS Band",
+            "category": "fitness_technology",
+            "price": 95.0,
+            "product_id": "FT-102"
+          },
+          "transaction": {
+            "transaction_id": "SIM-22EF2EEAA974",
+            "user_id": "A123",
+            "product": {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:40:19.917412Z"
+          }
+        },
+        {
+          "recommendation": {
+            "category": "outdoor",
+            "reason": "The buyer's primary categories are electronics, sportswear, and fitness technology. The next logical step could be exploring outdoor products that complement their existing interests in activities."
+          },
+          "ranked_products": [
+            {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301",
+              "features": [
+                "22-liter capacity",
+                "Ventilated back",
+                "Rain cover"
+              ]
+            },
+            {
+              "product": "Rechargeable Camp Lantern",
+              "category": "outdoor",
+              "price": 48.0,
+              "product_id": "OD-303",
+              "features": [
+                "Dimmable light",
+                "USB rechargeable",
+                "Weather resistant"
+              ]
+            },
+            {
+              "product": "Insulated Water Bottle",
+              "category": "outdoor",
+              "price": 28.0,
+              "product_id": "OD-302",
+              "features": [
+                "Double-wall steel",
+                "Leakproof lid",
+                "24-hour cold"
+              ]
+            }
+          ],
+          "purchased_product": {
+            "product": "Trail Daypack",
+            "category": "outdoor",
+            "price": 85.0,
+            "product_id": "OD-301",
+            "features": [
+              "22-liter capacity",
+              "Ventilated back",
+              "Rain cover"
+            ]
+          },
+          "transaction": {
+            "transaction_id": "SIM-FEE865CD6DE2",
+            "user_id": "A123",
+            "product": {
+              "product": "Trail Daypack",
+              "category": "outdoor",
+              "price": 85.0,
+              "product_id": "OD-301",
+              "features": [
+                "22-liter capacity",
+                "Ventilated back",
+                "Rain cover"
+              ]
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T19:28:35.817000Z"
+          },
+          "recommendation_metrics": {
+            "confidence": 95,
+            "generated_at": "2026-07-13T19:28:35.814114Z",
+            "thinking_duration_ms": 929,
+            "product_match_scores": {
+              "OD-301": 92,
+              "OD-303": 80,
+              "OD-302": 73
+            },
+            "confidence_basis": "Engineering score based on category novelty, buyer-history signal, and catalog match availability; it is not an LLM probability."
+          }
+        },
+        {
+          "recommendation": {
+            "category": "home_living",
+            "reason": "The current purchase history includes electronics, sportswear, fitness technology, and outdoor products but lacks home living items. Choosing this category maximizes variety in future purchases."
+          },
+          "ranked_products": [
+            {
+              "product": "Weighted Throw Blanket",
+              "category": "home_living",
+              "price": 75.0,
+              "product_id": "HC-402",
+              "features": [
+                "Breathable weave",
+                "Even weight",
+                "Machine washable"
+              ]
+            },
+            {
+              "product": "Indoor Herb Garden",
+              "category": "home_living",
+              "price": 65.0,
+              "product_id": "HC-403",
+              "features": [
+                "Self-watering",
+                "Grow light",
+                "Three plant pods"
+              ]
+            },
+            {
+              "product": "Ceramic Pour-Over Set",
+              "category": "home_living",
+              "price": 42.0,
+              "product_id": "HC-401",
+              "features": [
+                "Hand-glazed ceramic",
+                "Reusable filter",
+                "Two-cup carafe"
+              ]
+            }
+          ],
+          "purchased_product": {
+            "product": "Weighted Throw Blanket",
+            "category": "home_living",
+            "price": 75.0,
+            "product_id": "HC-402",
+            "features": [
+              "Breathable weave",
+              "Even weight",
+              "Machine washable"
+            ]
+          },
+          "transaction": {
+            "transaction_id": "SIM-62A6A895401F",
+            "user_id": "A123",
+            "product": {
+              "product": "Weighted Throw Blanket",
+              "category": "home_living",
+              "price": 75.0,
+              "product_id": "HC-402",
+              "features": [
+                "Breathable weave",
+                "Even weight",
+                "Machine washable"
+              ]
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T19:29:20.169977Z"
+          },
+          "recommendation_metrics": {
+            "confidence": 95,
+            "generated_at": "2026-07-13T19:29:20.169977Z",
+            "thinking_duration_ms": 934,
+            "product_match_scores": {
+              "HC-402": 90,
+              "HC-403": 85,
+              "HC-401": 77
+            },
+            "confidence_basis": "Engineering score based on category novelty, buyer-history signal, and catalog match availability; it is not an LLM probability."
+          }
+        },
+        {
+          "recommendation": {
+            "category": "electronics_accessories",
+            "reason": "The buyer's history includes products in the electronics category such as 'Bluetooth headphones' (price: 120.0) and 'Stride GPS Band' (price: 95.0). Both of these items fall under the broader category of electronics accessories, indicating a strong preference for this category."
+          },
+          "ranked_products": [
+            {
+              "product": "Mini Bluetooth Speaker",
+              "category": "electronics_accessories",
+              "price": 65.0,
+              "product_id": "EA-603",
+              "features": [
+                "360-degree audio",
+                "Water resistant",
+                "12-hour battery"
+              ]
+            },
+            {
+              "product": "Pocket Power Bank",
+              "category": "electronics_accessories",
+              "price": 45.0,
+              "product_id": "EA-602",
+              "features": [
+                "10,000 mAh capacity",
+                "Fast USB-C charging",
+                "Battery indicator"
+              ]
+            },
+            {
+              "product": "Nova ANC Headphones",
+              "category": "electronics_accessories",
+              "price": 140.0,
+              "product_id": "EA-601",
+              "features": [
+                "Active noise cancellation",
+                "40-hour battery",
+                "Foldable design"
+              ]
+            }
+          ],
+          "purchased_product": {
+            "product": "Pocket Power Bank",
+            "category": "electronics_accessories",
+            "price": 45.0,
+            "product_id": "EA-602",
+            "features": [
+              "10,000 mAh capacity",
+              "Fast USB-C charging",
+              "Battery indicator"
+            ]
+          },
+          "transaction": {
+            "transaction_id": "SIM-5FA93CF4AD79",
+            "user_id": "A123",
+            "product": {
+              "product": "Pocket Power Bank",
+              "category": "electronics_accessories",
+              "price": 45.0,
+              "product_id": "EA-602",
+              "features": [
+                "10,000 mAh capacity",
+                "Fast USB-C charging",
+                "Battery indicator"
+              ]
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-14T19:56:04.440614Z"
+          },
+          "recommendation_metrics": {
+            "confidence": 95,
+            "generated_at": "2026-07-14T19:55:55.925733Z",
+            "thinking_duration_ms": 1265,
+            "product_match_scores": {
+              "EA-603": 88,
+              "EA-602": 80,
+              "EA-601": 78
+            },
+            "confidence_basis": "Engineering score based on category novelty, buyer-history signal, and catalog match availability; it is not an LLM probability."
+          }
+        },
+        {
+          "recommendation": {
+            "category": "personal_care",
+            "reason": "The buyer_history includes 'Pocket Power Bank' which falls under the 'electronics_accessories' category, however, this is not a valid choice from the catalog_categories list. The closest match and most relevant category to the accessories is 'personal_care'. There are no other categories in the history that support another category selection."
+          },
+          "ranked_products": [
+            {
+              "product": "Electric Toothbrush",
+              "category": "personal_care",
+              "price": 60.0,
+              "product_id": "PC-501",
+              "features": [
+                "Two-minute timer",
+                "Pressure alert",
+                "Three cleaning modes"
+              ]
+            },
+            {
+              "product": "Heated Neck Wrap",
+              "category": "personal_care",
+              "price": 55.0,
+              "product_id": "PC-503",
+              "features": [
+                "Three heat levels",
+                "Soft washable cover",
+                "Auto shutoff"
+              ]
+            },
+            {
+              "product": "Sleep Sound Machine",
+              "category": "personal_care",
+              "price": 45.0,
+              "product_id": "PC-502",
+              "features": [
+                "Twelve soundscapes",
+                "Sleep timer",
+                "Warm night light"
+              ]
+            }
+          ],
+          "purchased_product": {
+            "product": "Heated Neck Wrap",
+            "category": "personal_care",
+            "price": 55.0,
+            "product_id": "PC-503",
+            "features": [
+              "Three heat levels",
+              "Soft washable cover",
+              "Auto shutoff"
+            ]
+          },
+          "transaction": {
+            "transaction_id": "SIM-57E8638F5070",
+            "user_id": "A123",
+            "product": {
+              "product": "Heated Neck Wrap",
+              "category": "personal_care",
+              "price": 55.0,
+              "product_id": "PC-503",
+              "features": [
+                "Three heat levels",
+                "Soft washable cover",
+                "Auto shutoff"
+              ]
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-14T19:56:10.555683Z"
+          },
+          "recommendation_metrics": {
+            "confidence": 95,
+            "generated_at": "2026-07-14T19:56:07.266764Z",
+            "thinking_duration_ms": 1331,
+            "product_match_scores": {
+              "PC-501": 88,
+              "PC-503": 84,
+              "PC-502": 80
+            },
+            "confidence_basis": "Engineering score based on category novelty, buyer-history signal, and catalog match availability; it is not an LLM probability."
+          }
+        }
+      ]
+    },
+    "B456": {
+      "user_id": "B456",
+      "purchase_history": [
+        {
+          "product": "Cookbook",
+          "category": "books",
+          "price": 25.0
+        },
+        {
+          "product": "Table lamp",
+          "category": "home_living",
+          "price": 68.0
+        },
+        {
+          "product": "VisionMax 65-inch 4K Smart TV",
+          "category": "electronics",
+          "price": 1499.0
+        },
+        {
+          "product": "Sleep Sound Machine",
+          "category": "personal_care",
+          "price": 45.0
+        },
+        {
+          "product": "Sleep Sound Machine",
+          "category": "personal_care",
+          "price": 45.0
+        }
+      ],
+      "recommendation": {
+        "category": "personal_care",
+        "reason": "The last two purchases were in 'books' and 'home_living'. No other categories have been selected, making 'personal_care' the most suitable next choice."
+      },
+      "ranked_products": [
+        {
+          "product": "Sleep Sound Machine",
+          "category": "personal_care",
+          "price": 45.0,
+          "product_id": "PC-502"
+        },
+        {
+          "product": "Heated Neck Wrap",
+          "category": "personal_care",
+          "price": 55.0,
+          "product_id": "PC-503"
+        },
+        {
+          "product": "Electric Toothbrush",
+          "category": "personal_care",
+          "price": 60.0,
+          "product_id": "PC-501"
+        }
+      ],
+      "purchased_product": {
+        "product": "Sleep Sound Machine",
+        "category": "personal_care",
+        "price": 45.0,
+        "product_id": "PC-502"
+      },
+      "transaction": {
+        "transaction_id": "SIM-18238DB0A121",
+        "user_id": "B456",
+        "product": {
+          "product": "Sleep Sound Machine",
+          "category": "personal_care",
+          "price": 45.0,
+          "product_id": "PC-502"
+        },
+        "status": "simulated_success",
+        "purchased_at": "2026-07-13T04:39:37.412743Z"
+      },
+      "interactions": [
+        {
+          "recommendation": {
+            "category": "personal_care",
+            "reason": "The last two products purchased were related to home living (table lamp) and books (cookbook). The buyer history shows no personal care items, hence choosing this category."
+          },
+          "ranked_products": [
+            {
+              "product": "Sleep Sound Machine",
+              "category": "personal_care",
+              "price": 45.0,
+              "product_id": "PC-502"
+            },
+            {
+              "product": "Heated Neck Wrap",
+              "category": "personal_care",
+              "price": 55.0,
+              "product_id": "PC-503"
+            },
+            {
+              "product": "Electric Toothbrush",
+              "category": "personal_care",
+              "price": 60.0,
+              "product_id": "PC-501"
+            }
+          ],
+          "purchased_product": {
+            "product": "Sleep Sound Machine",
+            "category": "personal_care",
+            "price": 45.0,
+            "product_id": "PC-502"
+          },
+          "transaction": {
+            "transaction_id": "SIM-F0B7D7729ACC",
+            "user_id": "B456",
+            "product": {
+              "product": "Sleep Sound Machine",
+              "category": "personal_care",
+              "price": 45.0,
+              "product_id": "PC-502"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:39:35.151422Z"
+          }
+        },
+        {
+          "recommendation": {
+            "category": "personal_care",
+            "reason": "The last two purchases were in 'books' and 'home_living'. No other categories have been selected, making 'personal_care' the most suitable next choice."
+          },
+          "ranked_products": [
+            {
+              "product": "Sleep Sound Machine",
+              "category": "personal_care",
+              "price": 45.0,
+              "product_id": "PC-502"
+            },
+            {
+              "product": "Heated Neck Wrap",
+              "category": "personal_care",
+              "price": 55.0,
+              "product_id": "PC-503"
+            },
+            {
+              "product": "Electric Toothbrush",
+              "category": "personal_care",
+              "price": 60.0,
+              "product_id": "PC-501"
+            }
+          ],
+          "purchased_product": {
+            "product": "Sleep Sound Machine",
+            "category": "personal_care",
+            "price": 45.0,
+            "product_id": "PC-502"
+          },
+          "transaction": {
+            "transaction_id": "SIM-18238DB0A121",
+            "user_id": "B456",
+            "product": {
+              "product": "Sleep Sound Machine",
+              "category": "personal_care",
+              "price": 45.0,
+              "product_id": "PC-502"
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-13T04:39:37.412743Z"
+          }
+        }
+      ]
+    },
+    "H314": {
+      "user_id": "H314",
+      "purchase_history": [
+        {
+          "product": "Yoga mat",
+          "category": "sportswear",
+          "price": 40.0
+        },
+        {
+          "product": "Protein shaker",
+          "category": "fitness",
+          "price": 16.0
+        },
+        {
+          "product": "Meditation cushion",
+          "category": "personal_care",
+          "price": 52.0
+        },
+        {
+          "product": "Stride GPS Band",
+          "category": "fitness_technology",
+          "price": 95.0
+        }
+      ],
+      "recommendation": {
+        "category": "fitness_technology",
+        "reason": "The buyer_history contains products related to fitness, specifically a Yoga mat and a Protein shaker. Both of these items are categorized under 'fitness'. Given that the categories in catalog_categories are ordered by relevance to the buyer history, 'fitness_technology' is the most relevant choice."
+      },
+      "ranked_products": [
+        {
+          "product": "Stride GPS Band",
+          "category": "fitness_technology",
+          "price": 95.0,
+          "product_id": "FT-102",
+          "features": [
+            "Built-in GPS",
+            "Pace tracking",
+            "Water resistant"
+          ]
+        },
+        {
+          "product": "PulseTrack Fitness Watch",
+          "category": "fitness_technology",
+          "price": 115.0,
+          "product_id": "FT-101",
+          "features": [
+            "Heart-rate tracking",
+            "Sleep insights",
+            "7-day battery"
+          ]
+        },
+        {
+          "product": "Active Recovery Massager",
+          "category": "fitness_technology",
+          "price": 130.0,
+          "product_id": "FT-103",
+          "features": [
+            "Four intensity levels",
+            "Quiet motor",
+            "Travel case"
+          ]
+        }
+      ],
+      "purchased_product": {
+        "product": "Stride GPS Band",
+        "category": "fitness_technology",
+        "price": 95.0,
+        "product_id": "FT-102",
+        "features": [
+          "Built-in GPS",
+          "Pace tracking",
+          "Water resistant"
+        ]
+      },
+      "transaction": {
+        "transaction_id": "SIM-53D6B2C23A04",
+        "user_id": "H314",
+        "product": {
+          "product": "Stride GPS Band",
+          "category": "fitness_technology",
+          "price": 95.0,
+          "product_id": "FT-102",
+          "features": [
+            "Built-in GPS",
+            "Pace tracking",
+            "Water resistant"
+          ]
+        },
+        "status": "simulated_success",
+        "purchased_at": "2026-07-14T19:45:15.746064Z"
+      },
+      "interactions": [
+        {
+          "recommendation": {
+            "category": "fitness_technology",
+            "reason": "The buyer_history contains products related to fitness, specifically a Yoga mat and a Protein shaker. Both of these items are categorized under 'fitness'. Given that the categories in catalog_categories are ordered by relevance to the buyer history, 'fitness_technology' is the most relevant choice."
+          },
+          "ranked_products": [
+            {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102",
+              "features": [
+                "Built-in GPS",
+                "Pace tracking",
+                "Water resistant"
+              ]
+            },
+            {
+              "product": "PulseTrack Fitness Watch",
+              "category": "fitness_technology",
+              "price": 115.0,
+              "product_id": "FT-101",
+              "features": [
+                "Heart-rate tracking",
+                "Sleep insights",
+                "7-day battery"
+              ]
+            },
+            {
+              "product": "Active Recovery Massager",
+              "category": "fitness_technology",
+              "price": 130.0,
+              "product_id": "FT-103",
+              "features": [
+                "Four intensity levels",
+                "Quiet motor",
+                "Travel case"
+              ]
+            }
+          ],
+          "purchased_product": {
+            "product": "Stride GPS Band",
+            "category": "fitness_technology",
+            "price": 95.0,
+            "product_id": "FT-102",
+            "features": [
+              "Built-in GPS",
+              "Pace tracking",
+              "Water resistant"
+            ]
+          },
+          "transaction": {
+            "transaction_id": "SIM-53D6B2C23A04",
+            "user_id": "H314",
+            "product": {
+              "product": "Stride GPS Band",
+              "category": "fitness_technology",
+              "price": 95.0,
+              "product_id": "FT-102",
+              "features": [
+                "Built-in GPS",
+                "Pace tracking",
+                "Water resistant"
+              ]
+            },
+            "status": "simulated_success",
+            "purchased_at": "2026-07-14T19:45:15.746064Z"
+          },
+          "recommendation_metrics": {
+            "confidence": 95,
+            "generated_at": "2026-07-14T19:44:39.848436Z",
+            "thinking_duration_ms": 1243,
+            "product_match_scores": {
+              "FT-102": 70,
+              "FT-101": 68,
+              "FT-103": 66
+            },
+            "confidence_basis": "Engineering score based on category novelty, buyer-history signal, and catalog match availability; it is not an LLM probability."
+          }
+        }
+      ]
+    }
+  }
+}
