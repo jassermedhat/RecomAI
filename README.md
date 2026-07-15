@@ -191,12 +191,11 @@ npm run build
 
 Backend tests replace Ollama with deterministic test agents. The repository does not configure linting, static type checking, Docker, or CI workflows.
 
-## Scope and limitations
+## Scope
 
 - RecomAI is intended for local development and demonstration.
 - Purchases are simulated; there is no payment processing or inventory mutation.
 - There is no authentication, authorization, user-account system, workspace isolation, or admin dashboard.
-- The application is a responsive web interface, not a native mobile application.
+- The application is a responsive web interface.
 - Ollama is the only external runtime integration.
-- No Docker or hosted deployment configuration is included.
-- JSON memory is appropriate for the current single-process local workflow, not concurrent production deployment.
+- JSON memory is used for the current single-process local workflow.
